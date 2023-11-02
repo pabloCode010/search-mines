@@ -1,24 +1,18 @@
 class Player():
     def __init__(self, name) -> None:
-        self.__name = name
-        self.__mines_found = 0
+        self.name = name
+        self._mark_mines= 0
+        self._explod_mines = 0
+        self.points = 0
     
-    @property
-    def name(self):
-        return self.__name
+    def add_points(self, points: int) -> None:
+        self.points += points
     
-    @name.setter
-    def name(self, name: str):
-        if not isinstance(name, str):
-            raise TypeError("The name property must be a string")
-        self.__name = name
+    def subtract_points(self, points:int) -> None:
+        self.points -= points
     
-    @property
-    def mines_found(self):
-        return self.__mines_found
+    def explod_mine(self):
+        self._explod_mines += 1
     
-    @mines_found.setter
-    def mines_found(self, mines_found: int):
-        if not isinstance(mines_found, int):
-            raise TypeError("The mines_found property must be an integer")
-        self.__mines_found = mines_found
+    def mark_mine(self):
+        self._mark_mines += 1
